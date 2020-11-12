@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Title - SIMPEG UNSIKA</title>
+	<title><?= $title ?? 'Home'; ?> - SIMPEG UNSIKA</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -17,9 +17,9 @@
 	<link href="<?= base_url(); ?>/assets/css/colors.min.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
-	<!-- Page-based stylesheets -->
-	<!-- ECHO custom-stylesheet -->
-	<!-- /page-based stylesheets -->
+	<!-- Page-specific stylesheets -->
+	<?= $this->renderSection('customCss'); ?>
+	<!-- /page-specific stylesheets -->
 </head>
 
 <body>
@@ -58,11 +58,8 @@
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+						<a href="#" class="dropdown-item"><i class="icon-user"></i> My profile</a>
+						<!-- <div class="dropdown-divider"></div> -->
 						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
 					</div>
 				</li>
@@ -124,7 +121,7 @@
 							<div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link active">
+							<a href="#" class="nav-link <?= $dashboard ?? ''; ?>">
 								<i class="icon-home4"></i>
 								<span>
 									Dashboard
@@ -135,16 +132,26 @@
 							<a href="#" class="nav-link"><i class="icon-database"></i> <span>Master Data</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
-								<li class="nav-item"><a href="#" class="nav-link">Data Eselon</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Data Golongan</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Data Jabatan</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Status Pegawai</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Status Jabatan</a></li>
-								<li class="nav-item"><a href="#" class="nav-link">Data Pegawai</a></li>
+								<li class="nav-item"><a href="<?= base_url('eselon'); ?>" class="nav-link <?= $eselon ?? ''; ?>">Data Eselon</a></li>
+								<li class="nav-item"><a href="<?= base_url('golongan'); ?>" class="nav-link <?= $golongan ?? ''; ?>">Data Golongan</a></li>
+								<li class="nav-item"><a href="<?= base_url('jabatan-fungsional'); ?>" class="nav-link <?= $jabatanFungsional ?? ''; ?>">Data Jabatan Fungsional</a></li>
+								<li class="nav-item"><a href="#" class="nav-link <?= $jabatanPegawai ?? ''; ?>">Data Jabatan Pegawai</a></li>
+								<li class="nav-item"><a href="#" class="nav-link <?= $jenisPegawai ?? ''; ?>">Data Jenis Pegawai</a></li>
+								<li class="nav-item"><a href="#" class="nav-link <?= $statusAktif ?? ''; ?>">Data Status Aktif</a></li>
+								<li class="nav-item"><a href="#" class="nav-link <?= $statusPegawai ?? ''; ?>">Data Status Pegawai</a></li>
+								<li class="nav-item"><a href="<?= base_url('unit-kerja'); ?>" class="nav-link <?= $unitKerja ?? ''; ?>">Data Unit Kerja</a></li>
 							</ul>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link">
+							<a href="#" class="nav-link <?= $pegawai ?? ''; ?>">
+								<i class="icon-users"></i>
+								<span>
+									Data Pegawai
+								</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link <?= $laporan ?? ''; ?>">
 								<i class="icon-file-text2"></i>
 								<span>
 									Laporan
@@ -167,7 +174,7 @@
 		<!-- Main content -->
 		<div class="content-wrapper">
 
-			<!-- ECHO content -->
+			<?= $this->renderSection('content'); ?>
 
 			<!-- Footer -->
 			<div class="navbar navbar-expand-lg navbar-light">
@@ -196,6 +203,9 @@
 	</div>
 	<!-- /page content -->
 
+	<!-- Modal section -->
+	<?= $this->renderSection('modalSection'); ?>
+	<!-- /modal section -->
 
 	<!-- Core JS files -->
 	<script src="<?= base_url(); ?>/assets/js/main/jquery.min.js"></script>
@@ -209,8 +219,11 @@
 	<script src="<?= base_url(); ?>/assets/js/plugins/forms/styling/switchery.min.js"></script>
 	<script src="<?= base_url(); ?>/assets/js/plugins/ui/moment/moment.min.js"></script>
 	<script src="<?= base_url(); ?>/assets/js/plugins/pickers/daterangepicker.js"></script>
+	<script src="<?= base_url(); ?>/assets/js/plugins/tables/datatables/datatables.min.js"></script>
 
-	<!-- ECHO custom library -->
+	<!-- Page-specific JS -->
+	<?= $this->renderSection('customJs'); ?>
+	<!-- /page-specific JS -->
 
 	<script src="<?= base_url(); ?>/assets/js/app.js"></script>
 	<script src="<?= base_url(); ?>/assets/js/custom.js"></script>
