@@ -16,7 +16,7 @@ class UnitKerja extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Unit Kerja',
+            'title' => 'Data Unit Kerja',
             'unitKerja' => 'active',
             'data' => $this->model->findAll()
         ];

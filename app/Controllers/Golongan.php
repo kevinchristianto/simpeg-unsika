@@ -17,7 +17,7 @@ class Golongan extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Golongan',
+            'title' => 'Data Golongan',
             'golongan' => 'active',
             'data' => $this->model->findAll()
         ];

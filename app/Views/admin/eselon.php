@@ -46,10 +46,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1.</td>
-                                <td>Lorem ipsum dolor</td>
-                            </tr>
+                            <?php
+                            $no = 1;
+                            foreach ($data as $row) {
+                            ?>
+                                <tr>
+                                    <td><?= $no++; ?></td>
+                                    <td><?= $row['nama_eselon']; ?></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

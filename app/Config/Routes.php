@@ -35,7 +35,17 @@ $routes->get('/', 'Home::index');
 $routes->get('/eselon', 'Eselon::index');
 $routes->get('/golongan', 'Golongan::index');
 $routes->get('/jabatan-fungsional', 'JabatanFungsional::index');
+$routes->get('/jabatan-pegawai', 'JabatanPegawai::index');
+$routes->get('/jenis-pegawai', 'JenisPegawai::index');
+$routes->get('/status-aktif', 'StatusAktif::index');
+$routes->get('/status-pegawai', 'StatusPegawai::index');
 $routes->get('/unit-kerja', 'UnitKerja::index');
+$routes->get('/pegawai', 'Pegawai::index');
+$routes->get('/get-pegawai', 'Pegawai::getPegawai');
+
+
+$routes->get('/import-pegawai', 'Home::importPegawai');
+$routes->post('/import-pegawai', 'Home::importPegawai');
 
 /**
  * --------------------------------------------------------------------

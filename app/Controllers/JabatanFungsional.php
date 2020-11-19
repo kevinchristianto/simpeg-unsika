@@ -17,7 +17,7 @@ class JabatanFungsional extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Jabatan Fungsional',
+            'title' => 'Data Jabatan Fungsional',
             'jabatanFungsional' => 'active',
             'data' => $this->model->findAll()
         ];

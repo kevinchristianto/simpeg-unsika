@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<base href="<?= base_url(); ?>">
 	<title><?= $title ?? 'Home'; ?> - SIMPEG UNSIKA</title>
 
 	<!-- Global stylesheets -->
@@ -135,15 +136,15 @@
 								<li class="nav-item"><a href="<?= base_url('eselon'); ?>" class="nav-link <?= $eselon ?? ''; ?>">Data Eselon</a></li>
 								<li class="nav-item"><a href="<?= base_url('golongan'); ?>" class="nav-link <?= $golongan ?? ''; ?>">Data Golongan</a></li>
 								<li class="nav-item"><a href="<?= base_url('jabatan-fungsional'); ?>" class="nav-link <?= $jabatanFungsional ?? ''; ?>">Data Jabatan Fungsional</a></li>
-								<li class="nav-item"><a href="#" class="nav-link <?= $jabatanPegawai ?? ''; ?>">Data Jabatan Pegawai</a></li>
-								<li class="nav-item"><a href="#" class="nav-link <?= $jenisPegawai ?? ''; ?>">Data Jenis Pegawai</a></li>
-								<li class="nav-item"><a href="#" class="nav-link <?= $statusAktif ?? ''; ?>">Data Status Aktif</a></li>
-								<li class="nav-item"><a href="#" class="nav-link <?= $statusPegawai ?? ''; ?>">Data Status Pegawai</a></li>
+								<li class="nav-item"><a href="<?= base_url('jabatan-pegawai'); ?>" class="nav-link <?= $jabatanPegawai ?? ''; ?>">Data Jabatan Pegawai</a></li>
+								<li class="nav-item"><a href="<?= base_url('jenis-pegawai'); ?>" class="nav-link <?= $jenisPegawai ?? ''; ?>">Data Jenis Pegawai</a></li>
+								<li class="nav-item"><a href="<?= base_url('status-aktif'); ?>" class="nav-link <?= $statusAktif ?? ''; ?>">Data Status Aktif</a></li>
+								<li class="nav-item"><a href="<?= base_url('status-pegawai'); ?>" class="nav-link <?= $statusPegawai ?? ''; ?>">Data Status Pegawai</a></li>
 								<li class="nav-item"><a href="<?= base_url('unit-kerja'); ?>" class="nav-link <?= $unitKerja ?? ''; ?>">Data Unit Kerja</a></li>
 							</ul>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link <?= $pegawai ?? ''; ?>">
+							<a href="<?= base_url('pegawai'); ?>" class="nav-link <?= $pegawai ?? ''; ?>">
 								<i class="icon-users"></i>
 								<span>
 									Data Pegawai
