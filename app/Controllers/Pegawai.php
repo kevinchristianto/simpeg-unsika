@@ -19,6 +19,11 @@ class Pegawai extends BaseController
 
     public function __construct()
     {
+        // $this->checkAuth();
+        if (!session('sess_in')) {
+            redirect()->to(base_url('auth/handleLogin'));
+        }
+
         $this->model = new PegawaiModel();
 
         helper('date');

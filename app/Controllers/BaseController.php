@@ -43,12 +43,13 @@ class BaseController extends Controller
 		// E.g.:
 		// $this->session = \Config\Services::session();
 
-		// session();
-
 		session();
+	}
 
-		// if (session('sess_in')) {
-		redirect()->to(base_url('auth'));
-		// }
+	protected function checkAuth()
+	{
+		if (!session('sess_in')) {
+			return redirect()->to(base_url('auth/handleLogin'));
+		}
 	}
 }

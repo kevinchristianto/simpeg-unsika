@@ -62,7 +62,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a href="<?= session('endpoint_profile'); ?>" class="dropdown-item"><i class="icon-user"></i> My profile</a>
 						<!-- <div class="dropdown-divider"></div> -->
-						<a href="<?= session('endpoint_logout'); ?>" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+						<a href="<?= base_url('auth/handleLogout'); ?>" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
 					</div>
 				</li>
 			</ul>
