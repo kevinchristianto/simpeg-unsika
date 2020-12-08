@@ -9,6 +9,10 @@
 $(document).ready(function () {
 	const baseUrl = $("base").attr("href");
 
+	$(".modal").on("shown.bs.modal", function () {
+		$(this).find("input[type=text]").first().focus();
+	});
+
 	$(".datatable-basic").DataTable({
 		autoWidth: false,
 		dom:
@@ -66,9 +70,35 @@ $(document).ready(function () {
 			},
 			{
 				data: function (data) {
-					return data.tempat_lahir && data.tgl_lahir
-						? `${data.tempat_lahir}, ${data.tgl_lahir}`
-						: "-";
+					const tempat = data.tempat_lahir || "-";
+					let tgl;
+					if (data.tgl_lahir) {
+						tgl = new Date(data.tgl_lahir);
+						const months = [
+							"Januari",
+							"Februari",
+							"Maret",
+							"April",
+							"Mei",
+							"Juni",
+							"Juli",
+							"Agustus",
+							"September",
+							"Oktober",
+							"November",
+							"Desember",
+						];
+						tgl =
+							tgl.getDate() +
+							" " +
+							months[tgl.getMonth()] +
+							" " +
+							tgl.getFullYear();
+					} else {
+						tgl = "-";
+					}
+
+					return tempat + ", " + tgl;
 				},
 			},
 			{
@@ -78,12 +108,12 @@ $(document).ready(function () {
 			},
 			{
 				data: function (data) {
-					return data.jabatan_pegawai || "-";
+					return data.nama_jabatan_pegawai || "-";
 				},
 			},
 			{
 				data: function (data) {
-					return data.status_pegawai || "-";
+					return data.nama_status_pegawai || "-";
 				},
 			},
 			{
@@ -92,6 +122,9 @@ $(document).ready(function () {
 						<div class="btn-group">
 							<button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown">Choose</button>
 							<div class="dropdown-menu dropdown-menu-right">
+								<a href="${
+									baseUrl + "/pegawai/" + data.nis
+								}" class="dropdown-item"><i class="icon-info22"></i>Detail</a>
 								<a href="#" class="dropdown-item"><i class="icon-pencil"></i>Ubah</a>
 								<a href="#" class="dropdown-item"><i class="icon-trash"></i>Hapus</a>
 							</div>
@@ -114,10 +147,6 @@ $(document).ready(function () {
 			});
 	});
 
-	$(".modal").on("shown.bs.modal", function () {
-		$(this).find("input[type=text]").first().focus();
-	});
-
 	// Add active class to submenu's parent
 	$(".nav-item-submenu")
 		.filter(function () {
@@ -129,4 +158,6 @@ $(document).ready(function () {
 		.addClass("active")
 		.next()
 		.css("display", "block");
+
+	$("select.form-control").select2();
 });

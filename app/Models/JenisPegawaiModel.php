@@ -6,6 +6,6 @@ use CodeIgniter\Model;
 
 class JenisPegawaiModel extends Model
 {
-    protected $table = 'tbl_jenis_pegawai';
+    protected $table = 'master_jenis_pegawai';
     protected $useTimestamps = true;
 }

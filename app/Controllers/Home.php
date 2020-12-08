@@ -18,7 +18,8 @@ class Home extends BaseController
 			'dashboard' => 'active'
 		];
 
-		return view('admin/dashboard', $data);
+		// return view('admin/dashboard', $data);
+		return view('landing');
 	}
 
 	public function importPegawai()

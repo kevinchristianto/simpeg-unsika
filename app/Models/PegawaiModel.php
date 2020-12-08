@@ -6,8 +6,8 @@ use CodeIgniter\Model;
 
 class PegawaiModel extends Model
 {
-    protected $table = 'tbl_pegawai';
-    protected $id = 'nis';
+    protected $table = 'master_pegawai';
+    protected $primaryKey = 'nis';
     protected $useTimestamps = true;
     protected $protectFields = false;
 
@@ -23,13 +23,13 @@ class PegawaiModel extends Model
     public function getAll(string $search = '')
     {
         $builder = $this->builder()
-            ->join('tbl_jenis_pegawai', 'tbl_jenis_pegawai.id = tbl_pegawai.jenis_pegawai', 'left')
-            ->join('tbl_jabatan_pegawai', 'tbl_jabatan_pegawai.id = tbl_pegawai.jabatan_pegawai', 'left')
-            ->join('tbl_status_pegawai', 'tbl_status_pegawai.id = tbl_pegawai.status_pegawai', 'left')
-            ->join('tbl_status_aktif', 'tbl_status_aktif.id = tbl_pegawai.status_aktif', 'left')
-            ->join('tbl_unit_kerja', 'tbl_unit_kerja.id = tbl_pegawai.unit_kerja', 'left')
-            ->join('tbl_jabatan_fungsional', 'tbl_jabatan_fungsional.id = tbl_pegawai.jabatan_fungsional', 'left')
-            ->join('tbl_golongan', 'tbl_golongan.golongan = tbl_pegawai.golongan', 'left');
+            ->join('master_jenis_pegawai', 'master_jenis_pegawai.id = master_pegawai.jenis_pegawai', 'left')
+            ->join('master_jabatan_pegawai', 'master_jabatan_pegawai.id = master_pegawai.jabatan_pegawai', 'left')
+            ->join('master_status_pegawai', 'master_status_pegawai.id = master_pegawai.status_pegawai', 'left')
+            ->join('master_status_aktif', 'master_status_aktif.id = master_pegawai.status_aktif', 'left')
+            ->join('master_unit_kerja', 'master_unit_kerja.id = master_pegawai.unit_kerja', 'left')
+            ->join('master_jabatan_fungsional', 'master_jabatan_fungsional.id = master_pegawai.jabatan_fungsional', 'left')
+            ->join('master_golongan', 'master_golongan.gol_ruang = master_pegawai.golongan', 'left');
 
         $condition = empty($search)
             ? $builder
@@ -40,14 +40,14 @@ class PegawaiModel extends Model
 
         return $condition;
 
-        // return $this->db->table('tbl_pegawai')
-        //     ->join('tbl_jenis_pegawai', 'tbl_jenis_pegawai.id = tbl_pegawai.jenis_pegawai', 'left')
-        //     ->join('tbl_jabatan_pegawai', 'tbl_jabatan_pegawai.id = tbl_pegawai.jabatan_pegawai', 'left')
-        //     ->join('tbl_status_pegawai', 'tbl_status_pegawai.id = tbl_pegawai.status_pegawai', 'left')
-        //     ->join('tbl_status_aktif', 'tbl_status_aktif.id = tbl_pegawai.status_aktif', 'left')
-        //     ->join('tbl_unit_kerja', 'tbl_unit_kerja.id = tbl_pegawai.unit_kerja', 'left')
-        //     ->join('tbl_jabatan_fungsional', 'tbl_jabatan_fungsional.id = tbl_pegawai.jabatan_fungsional', 'left')
-        //     ->join('tbl_golongan', 'tbl_golongan.golongan = tbl_pegawai.golongan', 'left')
+        // return $this->db->table('master_pegawai')
+        //     ->join('master_jenis_pegawai', 'master_jenis_pegawai.id = master_pegawai.jenis_pegawai', 'left')
+        //     ->join('master_jabatan_pegawai', 'master_jabatan_pegawai.id = master_pegawai.jabatan_pegawai', 'left')
+        //     ->join('master_status_pegawai', 'master_status_pegawai.id = master_pegawai.status_pegawai', 'left')
+        //     ->join('master_status_aktif', 'master_status_aktif.id = master_pegawai.status_aktif', 'left')
+        //     ->join('master_unit_kerja', 'master_unit_kerja.id = master_pegawai.unit_kerja', 'left')
+        //     ->join('master_jabatan_fungsional', 'master_jabatan_fungsional.id = master_pegawai.jabatan_fungsional', 'left')
+        //     ->join('master_golongan', 'master_golongan.golongan = master_pegawai.golongan', 'left')
         //     ->like('nama_pegawai', $search, 'both')
         //     ->orderBy($order, $dir)
         //     ->limit($length, $start)
@@ -56,4 +56,4 @@ class PegawaiModel extends Model
 }
 
 
-// SELECT tbl_pegawai.nis, tbl_pegawai.nama_pegawai, tbl_jenis_pegawai.nama_jenis_pegawai, tbl_jabatan_pegawai.nama_jabatan_pegawai, tbl_status_pegawai.nama_status_pegawai, tbl_status_aktif.status_aktif, tbl_unit_kerja.nama_unit_kerja, tbl_jabatan_fungsional.nama_jabatan_fungsional, tbl_golongan.pangkat FROM tbl_pegawai LEFT JOIN tbl_jenis_pegawai ON tbl_jenis_pegawai.id = tbl_pegawai.jenis_pegawai LEFT JOIN tbl_jabatan_pegawai ON tbl_jabatan_pegawai.id = tbl_pegawai.jabatan_pegawai LEFT JOIN tbl_status_pegawai ON tbl_status_pegawai.id = tbl_pegawai.status_pegawai LEFT JOIN tbl_status_aktif ON tbl_status_aktif.id = tbl_pegawai.status_aktif LEFT JOIN tbl_unit_kerja ON tbl_unit_kerja.id = tbl_pegawai.unit_kerja LEFT JOIN tbl_jabatan_fungsional ON tbl_jabatan_fungsional.id = tbl_pegawai.jabatan_fungsional LEFT JOIN tbl_golongan ON tbl_golongan.golongan = tbl_pegawai.golongan
+// SELECT master_pegawai.nis, master_pegawai.nama_pegawai, master_jenis_pegawai.nama_jenis_pegawai, master_jabatan_pegawai.nama_jabatan_pegawai, master_status_pegawai.nama_status_pegawai, master_status_aktif.status_aktif, master_unit_kerja.nama_unit_kerja, master_jabatan_fungsional.nama_jabatan_fungsional, master_golongan.pangkat FROM master_pegawai LEFT JOIN master_jenis_pegawai ON master_jenis_pegawai.id = master_pegawai.jenis_pegawai LEFT JOIN master_jabatan_pegawai ON master_jabatan_pegawai.id = master_pegawai.jabatan_pegawai LEFT JOIN master_status_pegawai ON master_status_pegawai.id = master_pegawai.status_pegawai LEFT JOIN master_status_aktif ON master_status_aktif.id = master_pegawai.status_aktif LEFT JOIN master_unit_kerja ON master_unit_kerja.id = master_pegawai.unit_kerja LEFT JOIN master_jabatan_fungsional ON master_jabatan_fungsional.id = master_pegawai.jabatan_fungsional LEFT JOIN master_golongan ON master_golongan.golongan = master_pegawai.golongan

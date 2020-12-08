@@ -40,8 +40,12 @@ $routes->get('/jenis-pegawai', 'JenisPegawai::index');
 $routes->get('/status-aktif', 'StatusAktif::index');
 $routes->get('/status-pegawai', 'StatusPegawai::index');
 $routes->get('/unit-kerja', 'UnitKerja::index');
-$routes->get('/pegawai', 'Pegawai::index');
+$routes->resource('pegawai', ['placeholder' => '(:num)']);
+$routes->get('/check-daily-kgb', 'KGB::checkDaily');
 $routes->get('/get-pegawai', 'Pegawai::getPegawai');
+$routes->post('/keluarga-pegawai', 'KeluargaPegawai::create');
+$routes->post('/pendidikan-pegawai', 'PendidikanPegawai::create');
+$routes->put('/pendidikan-pegawai/(:num)', 'PendidikanPegawai::update/$1');
 
 
 $routes->get('/import-pegawai', 'Home::importPegawai');

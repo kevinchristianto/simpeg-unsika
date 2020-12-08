@@ -14,15 +14,6 @@
 
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
-
-        <div class="header-elements d-none">
-            <div class="breadcrumb justify-content-center">
-                <a href="#" class="breadcrumb-elements-item" data-toggle="modal" data-target="#add-pegawai">
-                    <i class="icon-plus22"></i>
-                    Tambah Data Pegawai
-                </a>
-            </div>
-        </div>
     </div>
 </div>
 <!-- /page header -->
@@ -35,9 +26,12 @@
         <div class="col-12 mx-md-auto">
             <div class="card border-left-teal border-left-2 rounded-left-0">
                 <div class="card-header header-elements-inline">
-                    <h5 class="card-title font-weight-bold text-teal">Data Pegawai</h5>
+                    <h5 class="card-title">Data Pegawai</h5>
                     <div class="header-elements">
-                        <button class="btn btn-primary btn-sm">Tambah Data Pegawai</button>
+                        <a class="btn btn-outline bg-teal text-teal border-teal btn-sm" href="<?= base_url('pegawai/new'); ?>">
+                            <i class="icon-plus22"></i>
+                            Tambah Data Pegawai
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -67,36 +61,4 @@
 </div>
 <!-- /content area -->
 
-<?= $this->endSection(); ?>
-
-<?= $this->section('modalSection'); ?>
-<div class="modal fade" id="add-pegawai">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tambah Data Pegawai</h5>
-                <button class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form action="<?= base_url('jenis-pegawai/insert/'); ?>" method="POST">
-                    <div class="form-group">
-                        <label>Kode Jenis Pegawai</label>
-                        <input type="text" class="form-control" name="id">
-                    </div>
-                    <div class="form-group">
-                        <label>Nama Jenis Pegawai</label>
-                        <input type="text" class="form-control" name="nama_jenis-pegawai">
-                    </div>
-                    <div class="form-group">
-                        <label>Keterangan</label>
-                        <textarea name="keterangan" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group float-right">
-                        <button class="btn btn-success">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 <?= $this->endSection(); ?>

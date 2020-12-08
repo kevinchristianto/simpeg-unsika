@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class GolonganModel extends Model
 {
-    protected $table = 'tbl_golongan';
-    protected $primaryKey = 'golongan';
+    protected $table = 'master_golongan';
+    protected $primaryKey = 'gol_ruang';
     protected $useTimestamps = true;
 }

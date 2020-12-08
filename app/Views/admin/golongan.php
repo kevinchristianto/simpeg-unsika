@@ -35,7 +35,7 @@
         <div class="col-md-8 col-12 mx-md-auto">
             <div class="card border-left-teal border-left-2 rounded-left-0">
                 <div class="card-header">
-                    <h5 class="card-title font-weight-bold text-teal">Data Golongan</h5>
+                    <h5 class="card-title">Data Golongan</h5>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-hover datatable-basic">
@@ -55,7 +55,7 @@
                             ?>
                                 <tr>
                                     <td class="font-weight-bold"><?= $no++; ?>.</td>
-                                    <td><?= $row['golongan']; ?></td>
+                                    <td><?= $row['gol_ruang']; ?></td>
                                     <td><?= $row['pangkat']; ?></td>
                                     <td><?= $row['standar_poin']; ?></td>
                                     <td>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 /**
@@ -41,6 +42,13 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
-	}
 
+		// session();
+
+		session();
+
+		// if (session('sess_in')) {
+		redirect()->to(base_url('auth'));
+		// }
+	}
 }

@@ -16,6 +16,7 @@
 	<link href="<?= base_url(); ?>/assets/css/layout.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>/assets/css/components.min.css" rel="stylesheet" type="text/css">
 	<link href="<?= base_url(); ?>/assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="<?= base_url(); ?>/assets/css/custom.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
 	<!-- Page-specific stylesheets -->
@@ -54,14 +55,14 @@
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
-						<img src="<?= base_url(); ?>/assets/images/placeholders/placeholder.jpg" class="rounded-circle mr-2" height="34" alt="">
-						<span>John Doe</span>
+						<img src="<?= session('account')['avatar_url']; ?>" class="rounded-circle mr-2" height="34" width="32" alt="">
+						<span><?= session('account')['name']; ?></span>
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="#" class="dropdown-item"><i class="icon-user"></i> My profile</a>
+						<a href="<?= session('endpoint_profile'); ?>" class="dropdown-item"><i class="icon-user"></i> My profile</a>
 						<!-- <div class="dropdown-divider"></div> -->
-						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+						<a href="<?= session('endpoint_logout'); ?>" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
 					</div>
 				</li>
 			</ul>
@@ -98,11 +99,11 @@
 					<div class="card-body">
 						<div class="media">
 							<div class="mr-3">
-								<a href="#"><img src="<?= base_url(); ?>/assets/images/placeholders/placeholder.jpg" width="38" height="38" class="rounded-circle" alt=""></a>
+								<a href="#"><img src="<?= session('account')['avatar_url']; ?>" width="38" height="38" class="rounded-circle" alt=""></a>
 							</div>
 
 							<div class="media-body">
-								<div class="media-title font-weight-semibold">John Doe</div>
+								<div class="media-title font-weight-semibold"><?= session('account')['name']; ?></div>
 								<div class="font-size-xs opacity-50">
 									<i class="icon-profile font-size-sm"></i> &nbsp;Staff
 								</div>
@@ -130,7 +131,7 @@
 							</a>
 						</li>
 						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-database"></i> <span>Master Data</span></a>
+							<a href="#" class="nav-link"><i class="icon-folder-open"></i> <span>Master Data</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
 								<li class="nav-item"><a href="<?= base_url('eselon'); ?>" class="nav-link <?= $eselon ?? ''; ?>">Data Eselon</a></li>
@@ -148,6 +149,22 @@
 								<i class="icon-users"></i>
 								<span>
 									Data Pegawai
+								</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('penggajian'); ?>" class="nav-link <?= $penggajian ?? ''; ?>">
+								<i class="icon-calculator"></i>
+								<span>
+									Penggajian
+								</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('KGB'); ?>" class="nav-link <?= $kgb ?? ''; ?>">
+								<i class="icon-coin-dollar"></i>
+								<span>
+									Kenaikan Gaji Berkala
 								</span>
 							</a>
 						</li>

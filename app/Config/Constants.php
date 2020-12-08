@@ -12,6 +12,9 @@
 // existing namespaces of App\* namespaced-classes.
 //
 defined('APP_NAMESPACE') || define('APP_NAMESPACE', 'App');
+define('APP_NAME', 'SIMPEG UNSIKA');
+define('APP_CODE', 'simpeg');                            // edit this line if production
+define('ENDPOINT_AUTH_SSO', 'https://sso.unsika.ac.id/auth');          // edit this line if production
 
 /*
 |--------------------------------------------------------------------------

@@ -6,6 +6,6 @@ use CodeIgniter\Model;
 
 class UnitKerjaModel extends Model
 {
-    protected $table = 'tbl_unit_kerja';
+    protected $table = 'master_unit_kerja';
     protected $useTimestamps = true;
 }

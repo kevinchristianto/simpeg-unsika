@@ -35,7 +35,7 @@
         <div class="col-md-8 col-12 mx-md-auto">
             <div class="card border-left-teal border-left-2 rounded-left-0">
                 <div class="card-header">
-                    <h5 class="card-title font-weight-bold text-teal">Data Status Aktif</h5>
+                    <h5 class="card-title">Data Status Aktif</h5>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-hover datatable-basic">
@@ -56,7 +56,7 @@
                                 <tr>
                                     <td class="font-weight-bold"><?= $no++; ?>.</td>
                                     <td><?= $row['id']; ?></td>
-                                    <td><?= $row['status_aktif']; ?></td>
+                                    <td><?= $row['nama_status_aktif']; ?></td>
                                     <td><?= $row['keterangan'] ?? '-'; ?></td>
                                     <td>
                                         <div class="btn-group">
